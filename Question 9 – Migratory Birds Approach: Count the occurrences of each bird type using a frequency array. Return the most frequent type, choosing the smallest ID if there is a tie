@@ -1,0 +1,28 @@
+
+public class MigratoryBirds {
+    public static void main(String[] args) {
+        int[] arr = {1, 4, 4, 4, 5, 3};
+
+        System.out.println(migratoryBirds(arr));
+    }
+
+    static int migratoryBirds(int[] arr) {
+        int[] count = new int[6];
+
+        for (int bird : arr) {
+            count[bird]++;
+        }
+
+        int maxCount = 0;
+        int result = 0;
+
+        for (int i = 1; i <= 5; i++) {
+            if (count[i] > maxCount) {
+                maxCount = count[i];
+                result = i;
+            }
+        }
+
+        return result;
+    }
+}
